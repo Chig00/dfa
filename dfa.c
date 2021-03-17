@@ -100,20 +100,29 @@ int main(int argc, char** argv) {
                 break;
             }
             
+            // The state is displayed.
+            printf("\n%d (%d)\n", state, states[state].bit);
+            
             // The string of inputs is iterated through.
             for (int i = 0; string[i] != '\0'; ++i) {
                 // A zero transition is performed.
                 if (string[i] == '0') {
                     state = states[state].zero_state;
+                
+                    // The state is displayed.
+                    printf("0-> %d (%d)\n", state, states[state].bit);
                 }
                 
                 // A one transition is performed.
                 else if (string[i] == '1') {
                     state = states[state].one_state;
+                
+                    // The state is displayed.
+                    printf("1-> %d (%d)\n", state, states[state].bit);
                 }
             }
             
-            printf("Output: %d\n", states[state].bit);
+            printf("\nOutput: %d\n", states[state].bit);
         }
         
         // Input could not be read.
